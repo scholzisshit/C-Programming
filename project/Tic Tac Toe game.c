@@ -1,11 +1,17 @@
-#include <stdio.h>
-#include <ctype.h>
-#include <stdlib.h>
-#include <time.h>
+#include <stdio.h> //yooo for standerd input output
+#include <ctype.h> //yoo fr char
+#include <stdlib.h>// just a std library
 
+#include <time.h>//for time
+
+//cratin a boarrrdd
 char board[3][3];
 const char PLAYER = 'X';
 const char COMPUTER = 'O';
+
+
+
+//creatin func
 
 void resetBoard();
 void printBoard();
@@ -25,6 +31,8 @@ int main(){
     printf("\tPlayer 2 sign = O\n\n");
     char winner = ' ';
 
+
+//game logic
     resetBoard();
     while(winner == ' ' && checkFreeSpaces() != 0)
     {
@@ -49,6 +57,8 @@ int main(){
     return 0;
 }
 
+
+//reset board after run
 void resetBoard(){
     for(int i = 0; i < 3; i++){
         for(int j = 0; j < 3; j++){
@@ -57,6 +67,8 @@ void resetBoard(){
     }
 }
 
+
+//print board again
 void printBoard(){
 
     printf(" %c | %c | %c \n", board[0][0], board[0][1], board[0][2]);
@@ -67,6 +79,8 @@ void printBoard(){
     printf("\n\n");
 }
 
+
+//check free spaces
 int checkFreeSpaces(){
     int freeSpaces = 9;
     for(int i = 0; i < 3; i++){
@@ -102,6 +116,7 @@ void playerMove(){
     } while(board[x][y] != ' ');
 }
 
+//let comp move 
 void computerMove(){
     srand(time(NULL));
     int x;
@@ -116,6 +131,9 @@ void computerMove(){
     }
 }
 
+
+
+//how to win
 char checkWinner(){
     //check rows
     for(int i = 0; i < 3; i++){
@@ -141,6 +159,10 @@ char checkWinner(){
     return ' ';
 }
 
+
+
+
+//ayoooo winnner
 void printWinner(char winner) {
     if(winner == PLAYER){
         printf("\n\t --- Game Over --- \n");
